@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #555;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        select, input[type="text"], input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex-container > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .flex-container > div:last-child {
+            margin-right: 0;
+        }
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Customer Details</h2>
+        
+        <!-- Customer Details Section -->
+        <div class="section" style="background-color: #dff0d8;">
+            <div class="section-title">Customer Details</div>
+            <label for="SeniorCitizen">Senior Citizen:</label>
+            <select id="SeniorCitizen" name="SeniorCitizen">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="tenure">Tenure:</label>
+            <input type="text" id="tenure" name="tenure">
+        </div>
+        
+        <!-- Services and Billing Section -->
+        <div class="flex-container">
+            <!-- Services Section -->
+            <div class="section" style="background-color: #d9edf7;">
+                <div class="section-title">Services</div>
+                <label for="MultipleLines">Multiple Lines:</label>
+                <select id="MultipleLines" name="MultipleLines">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No phone service">No phone service</option>
+                </select>
+                
+                <label for="InternetService">Internet Service:</label>
+                <select id="InternetService" name="InternetService">
+                    <option value="DSL">DSL</option>
+                    <option value="Fiber optic">Fiber optic</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <label for="OnlineSecurity">Online Security:</label>
+                <select id="OnlineSecurity" name="OnlineSecurity">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                
+                <label for="OnlineBackup">Online Backup:</label>
+                <select id="OnlineBackup" name="OnlineBackup">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                
+                <label for="TechSupport">Tech Support:</label>
+                <select id="TechSupport" name="TechSupport">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                
+                <label for="StreamingMovies">Streaming Movies:</label>
+                <select id="StreamingMovies" name="StreamingMovies">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+            
+            <!-- Billing Section -->
+            <div class="section" style="background-color: #fcf8e3;">
+                <div class="section-title">Billing</div>
+                <label for="Contract">Contract:</label>
+                <select id="Contract" name="Contract">
+                    <option value="Month-to-month">Month-to-month</option>
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two year</option>
+                </select>
+                
+                <label for="PaperlessBilling">Paperless Billing:</label>
+                <select id="PaperlessBilling" name="PaperlessBilling">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <label for="PaymentMethod">Payment Method:</label>
+                <select id="PaymentMethod" name="PaymentMethod">
+                    <option value="Electronic check">Electronic check</option>
+                    <option value="Mailed check">Mailed check</option>
+                    <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                    <option value="Credit card (automatic)">Credit card (automatic)</option>
+                </select>
+                
+                <label for="MonthlyCharges">Monthly Charges:</label>
+                <input type="text" id="MonthlyCharges" name="MonthlyCharges">
+                
+                <label for="TotalCharges">Total Charges:</label>
+                <input type="text" id="TotalCharges" name="TotalCharges">
+            </div>
+        </div>
+        
+        <!-- Predict Button -->
+        <div class="section" style="background-color: #f2dede;">
+            <div class="section-title">Predict Churn</div>
+            <input type="submit" id="predictBtn" value="Predict">
+        </div>
+        
+        <!-- Result Alert -->
+        <div id="resultAlert" style="display:none; padding:10px; margin-top:10px; border-radius:5px;"></div>
+    </div>
+    
+    <script>
+     document.getElementById('predictBtn').addEventListener('click', function() {
+  var formData = {
+    'SeniorCitizen': document.getElementById('SeniorCitizen').value,
+    'tenure': document.getElementById('tenure').value,
+    'MultipleLines': document.getElementById('MultipleLines').value,
+    'InternetService': document.getElementById('InternetService').value,
+    'OnlineSecurity': document.getElementById('OnlineSecurity').value,
+    'OnlineBackup': document.getElementById('OnlineBackup').value,
+    'TechSupport': document.getElementById('TechSupport').value,
+    'StreamingMovies': document.getElementById('StreamingMovies').value,
+    'Contract': document.getElementById('Contract').value,
+    'PaperlessBilling': document.getElementById('PaperlessBilling').value,
+    'PaymentMethod': document.getElementById('PaymentMethod').value,
+    'MonthlyCharges': document.getElementById('MonthlyCharges').value,
+    'TotalCharges': document.getElementById('TotalCharges').value
+  };
+
+  console.log(formData); // Log formData for debugging
+
+  fetch('/predict', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);   
+ // Log response data for debugging
+
+    var resultAlert = document.getElementById('resultAlert');
+    if (data.prediction === 1) {
+      resultAlert.innerHTML = 'Prediction: Likely to Churn';
+      resultAlert.style.backgroundColor = '#f2dede';
+      resultAlert.style.color = '#a94442';
+    } else {
+      resultAlert.innerHTML = 'Prediction: Not Likely to Churn';
+      resultAlert.style.backgroundColor = '#dff0d8';
+      resultAlert.style.color = '#3c763d';
+    }
+    resultAlert.style.display = 'block';
+  })
+  .catch(error => {
+    console.error('Error:', error); // Log any errors for debugging
+  });
+});
+    </script>
+</body>
+</html>
